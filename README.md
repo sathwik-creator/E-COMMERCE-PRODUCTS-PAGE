@@ -52,6 +52,8 @@ TechStore/
 ├── login.html
 ├── checkout.html
 └── README.md
+
+
 📸 Website Pages
 🏠 Home Page
 Hero Section
