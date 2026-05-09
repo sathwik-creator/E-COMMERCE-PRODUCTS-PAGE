@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>TechStore</title>
+
+    <style>
+
+        /* GOOGLE FONT */
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins', sans-serif;
+        }
+
+        body{
+            background:#f5f7fb;
+            color:#222;
+        }
+
+        /* NAVBAR */
+
+        .navbar{
+            width:100%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 8%;
+            background:#111827;
+            position:sticky;
+            top:0;
+            z-index:1000;
+        }
+
+        .logo{
+            color:white;
+            font-size:32px;
+            font-weight:700;
+        }
+
+        .nav-links{
+            display:flex;
+            list-style:none;
+        }
+
+        .nav-links li{
+            margin-left:30px;
+        }
+
+        .nav-links a{
+            text-decoration:none;
+            color:white;
+            font-size:17px;
+            transition:0.3s;
+        }
+
+        .nav-links a:hover{
+            color:#f59e0b;
+        }
+
+        /* HERO SECTION */
+
+        .hero{
+            height:90vh;
+
+            background:
+            linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+
+            url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1400')
+
+            no-repeat center center/cover;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            color:white;
+            padding:20px;
+        }
+
+        .hero-text h1{
+            font-size:65px;
+            margin-bottom:20px;
+        }
+
+        .hero-text p{
+            font-size:22px;
+            margin-bottom:30px;
+            color:#ddd;
+        }
+
+        button{
+            padding:14px 30px;
+            border:none;
+            border-radius:8px;
+            background:#f59e0b;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+            transition:0.3s;
+            font-weight:600;
+        }
+
+        button:hover{
+            background:#ea580c;
+            transform:translateY(-3px);
+        }
+
+        /* PRODUCTS */
+
+        .products{
+            padding:80px 8%;
+        }
+
+        .products h2{
+            text-align:center;
+            font-size:45px;
+            margin-bottom:50px;
+        }
+
+        .product-container{
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+            gap:35px;
+        }
+
+        .product-card{
+            background:white;
+            border-radius:18px;
+            overflow:hidden;
+            box-shadow:0 8px 20px rgba(0,0,0,0.1);
+            transition:0.4s;
+        }
+
+        .product-card:hover{
+            transform:translateY(-10px);
+        }
+
+        .product-card img{
+            width:100%;
+            height:260px;
+            object-fit:cover;
+        }
+
+        .product-card-content{
+            padding:25px;
+        }
+
+        .product-card h3{
+            margin-bottom:10px;
+            font-size:24px;
+        }
+
+        .product-card p{
+            color:#16a34a;
+            font-size:22px;
+            margin-bottom:20px;
+            font-weight:600;
+        }
+
+        /* FEATURES */
+
+        .features{
+            padding:80px 8%;
+            background:white;
+        }
+
+        .features h2{
+            text-align:center;
+            font-size:45px;
+            margin-bottom:50px;
+        }
+
+        .feature-container{
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+            gap:30px;
+        }
+
+        .feature-box{
+            background:#f5f7fb;
+            padding:35px;
+            border-radius:15px;
+            text-align:center;
+            transition:0.3s;
+        }
+
+        .feature-box:hover{
+            transform:translateY(-8px);
+            background:#111827;
+            color:white;
+        }
+
+        .feature-box h3{
+            margin:20px 0;
+            font-size:24px;
+        }
+
+        .feature-box p{
+            color:inherit;
+        }
+
+        /* NEWSLETTER */
+
+        .newsletter{
+            padding:80px 8%;
+            text-align:center;
+            background:#111827;
+            color:white;
+        }
+
+        .newsletter h2{
+            font-size:40px;
+            margin-bottom:20px;
+        }
+
+        .newsletter p{
+            margin-bottom:30px;
+            color:#ddd;
+        }
+
+        .newsletter input{
+            width:350px;
+            max-width:90%;
+            padding:14px;
+            border:none;
+            border-radius:8px;
+            margin-bottom:20px;
+            font-size:16px;
+        }
+
+        /* FOOTER */
+
+        footer{
+            background:#0b1120;
+            color:white;
+            text-align:center;
+            padding:25px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:768px){
+
+            .navbar{
+                flex-direction:column;
+            }
+
+            .nav-links{
+                margin-top:20px;
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            .nav-links li{
+                margin:10px;
+            }
+
+            .hero-text h1{
+                font-size:42px;
+            }
+
+            .hero-text p{
+                font-size:18px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            TechStore
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="product.html">Products</a>
+            </li>
+
+            <li>
+                <a href="cart.html">Cart</a>
+            </li>
+
+            <li>
+                <a href="checkout.html">Checkout</a>
+            </li>
+
+            <li>
+                <a href="login.html">Login</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h1>
+                Upgrade Your Tech Lifestyle
+            </h1>
+
+            <p>
+                Discover premium gadgets with
+                modern technology and affordable pricing
+            </p>
+
+            <a href="product.html">
+
+                <button>
+                    Explore Products
+                </button>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- FEATURED PRODUCTS -->
+
+    <section class="products">
+
+        <h2>
+            Featured Products
+        </h2>
+
+        <div class="product-container">
+
+            <!-- PRODUCT 1 -->
+
+            <div class="product-card">
+
+                <img
+                src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=800"
+                alt="Watch">
+
+                <div class="product-card-content">
+
+                    <h3>
+                        Smart Watch Pro
+                    </h3>
+
+                    <p>
+                        ₹1999
+                    </p>
+
+                    <a href="product.html">
+                        <button>View Product</button>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- PRODUCT 2 -->
+
+            <div class="product-card">
+
+                <img
+                src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800"
+                alt="Headphones">
+
+                <div class="product-card-content">
+
+                    <h3>
+                        Wireless Headphones
+                    </h3>
+
+                    <p>
+                        ₹2999
+                    </p>
+
+                    <a href="product.html">
+                        <button>View Product</button>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- PRODUCT 3 -->
+
+            <div class="product-card">
+
+                <img
+                src="https://images.unsplash.com/photo-1517336714739-489689fd1ca8?q=80&w=800"
+                alt="Laptop">
+
+                <div class="product-card-content">
+
+                    <h3>
+                        Ultra Laptop
+                    </h3>
+
+                    <p>
+                        ₹59999
+                    </p>
+
+                    <a href="product.html">
+                        <button>View Product</button>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="features">
+
+        <h2>
+            Why Choose Us
+        </h2>
+
+        <div class="feature-container">
+
+            <div class="feature-box">
+
+                <h3>
+                    🚚 Fast Delivery
+                </h3>
+
+                <p>
+                    Get your products delivered quickly
+                    across the country.
+                </p>
+
+            </div>
+
+            <div class="feature-box">
+
+                <h3>
+                    💳 Secure Payment
+                </h3>
+
+                <p>
+                    Safe and secure payment methods
+                    for worry-free shopping.
+                </p>
+
+            </div>
+
+            <div class="feature-box">
+
+                <h3>
+                    ⭐ Premium Quality
+                </h3>
+
+                <p>
+                    High-quality gadgets with trusted
+                    brand assurance.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- NEWSLETTER -->
+
+    <section class="newsletter">
+
+        <h2>
+            Subscribe To Our Newsletter
+        </h2>
+
+        <p>
+            Get updates about latest products and offers
+        </p>
+
+        <input
+        type="email"
+        placeholder="Enter your email">
+
+        <br>
+
+        <button onclick="subscribeUser()">
+            Subscribe
+        </button>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 TechStore | All Rights Reserved
+        </p>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function subscribeUser(){
+
+            alert("Thank you for subscribing!");
+
+        }
+
+    </script>
+
+</body>
+</html>

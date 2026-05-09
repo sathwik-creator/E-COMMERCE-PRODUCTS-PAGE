@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout</title>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins', sans-serif;
+        }
+
+        body{
+            background:#f5f7fb;
+            color:#222;
+        }
+
+        /* NAVBAR */
+
+        .navbar{
+            width:100%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 8%;
+            background:#111827;
+            position:sticky;
+            top:0;
+            z-index:1000;
+        }
+
+        .logo{
+            color:white;
+            font-size:32px;
+            font-weight:700;
+        }
+
+        .nav-links{
+            display:flex;
+            list-style:none;
+        }
+
+        .nav-links li{
+            margin-left:30px;
+        }
+
+        .nav-links a{
+            text-decoration:none;
+            color:white;
+            font-size:17px;
+            transition:0.3s;
+        }
+
+        .nav-links a:hover{
+            color:#f59e0b;
+        }
+
+        /* PAGE TITLE */
+
+        .page-title{
+            text-align:center;
+            padding:60px 20px 20px;
+        }
+
+        .page-title h1{
+            font-size:50px;
+            margin-bottom:10px;
+        }
+
+        .page-title p{
+            color:#666;
+            font-size:18px;
+        }
+
+        /* CHECKOUT SECTION */
+
+        .checkout-section{
+            width:90%;
+            margin:40px auto 80px;
+            display:grid;
+            grid-template-columns:2fr 1fr;
+            gap:35px;
+        }
+
+        /* FORM */
+
+        .checkout-form{
+            background:white;
+            padding:40px;
+            border-radius:20px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .checkout-form h2{
+            margin-bottom:30px;
+            font-size:35px;
+        }
+
+        .form-group{
+            margin-bottom:25px;
+        }
+
+        .form-group label{
+            display:block;
+            margin-bottom:10px;
+            font-weight:500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select{
+            width:100%;
+            padding:14px;
+            border:1px solid #ccc;
+            border-radius:10px;
+            font-size:16px;
+            outline:none;
+            transition:0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus{
+            border-color:#f59e0b;
+        }
+
+        textarea{
+            resize:none;
+        }
+
+        /* SUMMARY */
+
+        .order-summary{
+            background:white;
+            padding:35px;
+            border-radius:20px;
+            height:fit-content;
+            box-shadow:0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .order-summary h2{
+            margin-bottom:30px;
+            font-size:32px;
+        }
+
+        .summary-item{
+            display:flex;
+            justify-content:space-between;
+            margin-bottom:18px;
+            color:#444;
+        }
+
+        .total{
+            margin-top:25px;
+            padding-top:20px;
+            border-top:2px solid #ddd;
+            display:flex;
+            justify-content:space-between;
+            font-size:28px;
+            font-weight:700;
+            color:#16a34a;
+        }
+
+        /* BUTTON */
+
+        .checkout-btn{
+            width:100%;
+            margin-top:30px;
+            padding:16px;
+            border:none;
+            border-radius:10px;
+            background:#f59e0b;
+            color:white;
+            font-size:18px;
+            font-weight:600;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .checkout-btn:hover{
+            background:#ea580c;
+            transform:translateY(-3px);
+        }
+
+        /* PAYMENT */
+
+        .payment-methods{
+            margin-top:25px;
+        }
+
+        .payment-methods h3{
+            margin-bottom:15px;
+        }
+
+        .payment-box{
+            display:flex;
+            align-items:center;
+            gap:10px;
+            margin-bottom:15px;
+        }
+
+        /* FOOTER */
+
+        footer{
+            background:#111827;
+            color:white;
+            text-align:center;
+            padding:25px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:900px){
+
+            .checkout-section{
+                grid-template-columns:1fr;
+            }
+
+        }
+
+        @media(max-width:768px){
+
+            .navbar{
+                flex-direction:column;
+            }
+
+            .nav-links{
+                margin-top:20px;
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            .nav-links li{
+                margin:10px;
+            }
+
+            .page-title h1{
+                font-size:38px;
+            }
+
+            .checkout-form,
+            .order-summary{
+                padding:25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            TechStore
+        </div>
+
+        <ul class="nav-links">
+
+            <li><a href="index.html">Home</a></li>
+
+            <li><a href="product.html">Products</a></li>
+
+            <li><a href="cart.html">Cart</a></li>
+
+            <li><a href="checkout.html">Checkout</a></li>
+
+            <li><a href="login.html">Login</a></li>
+
+        </ul>
+
+    </nav>
+
+    <!-- TITLE -->
+
+    <section class="page-title">
+
+        <h1>
+            Checkout
+        </h1>
+
+        <p>
+            Complete your purchase securely
+        </p>
+
+    </section>
+
+    <!-- CHECKOUT -->
+
+    <section class="checkout-section">
+
+        <!-- FORM -->
+
+        <div class="checkout-form">
+
+            <h2>
+                Billing Details
+            </h2>
+
+            <form onsubmit="placeOrder(event)">
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label>
+                        Full Name
+                    </label>
+
+                    <input
+                    type="text"
+                    placeholder="Enter your full name"
+                    required>
+
+                </div>
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                    type="email"
+                    placeholder="Enter your email"
+                    required>
+
+                </div>
+
+                <!-- PHONE -->
+
+                <div class="form-group">
+
+                    <label>
+                        Phone Number
+                    </label>
+
+                    <input
+                    type="tel"
+                    placeholder="Enter your phone number"
+                    required>
+
+                </div>
+
+                <!-- ADDRESS -->
+
+                <div class="form-group">
+
+                    <label>
+                        Delivery Address
+                    </label>
+
+                    <textarea
+                    rows="5"
+                    placeholder="Enter your delivery address"
+                    required></textarea>
+
+                </div>
+
+                <!-- CITY -->
+
+                <div class="form-group">
+
+                    <label>
+                        City
+                    </label>
+
+                    <input
+                    type="text"
+                    placeholder="Enter city"
+                    required>
+
+                </div>
+
+                <!-- PAYMENT -->
+
+                <div class="payment-methods">
+
+                    <h3>
+                        Payment Method
+                    </h3>
+
+                    <div class="payment-box">
+
+                        <input
+                        type="radio"
+                        name="payment"
+                        checked>
+
+                        <label>
+                            Cash On Delivery
+                        </label>
+
+                    </div>
+
+                    <div class="payment-box">
+
+                        <input
+                        type="radio"
+                        name="payment">
+
+                        <label>
+                            Credit / Debit Card
+                        </label>
+
+                    </div>
+
+                    <div class="payment-box">
+
+                        <input
+                        type="radio"
+                        name="payment">
+
+                        <label>
+                            UPI Payment
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <!-- BUTTON -->
+
+                <button
+                type="submit"
+                class="checkout-btn">
+
+                    Place Order
+
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- ORDER SUMMARY -->
+
+        <div class="order-summary">
+
+            <h2>
+                Order Summary
+            </h2>
+
+            <div class="summary-item">
+
+                <span>
+                    Smart Watch Pro
+                </span>
+
+                <span>
+                    ₹1999
+                </span>
+
+            </div>
+
+            <div class="summary-item">
+
+                <span>
+                    Wireless Headphones
+                </span>
+
+                <span>
+                    ₹2999
+                </span>
+
+            </div>
+
+            <div class="summary-item">
+
+                <span>
+                    Delivery Charges
+                </span>
+
+                <span>
+                    ₹100
+                </span>
+
+            </div>
+
+            <div class="total">
+
+                <span>
+                    Total
+                </span>
+
+                <span>
+                    ₹5098
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 TechStore | All Rights Reserved
+        </p>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function placeOrder(event){
+
+            event.preventDefault();
+
+            alert("Order Placed Successfully!");
+
+            window.location.href = "index.html";
+
+        }
+
+    </script>
+
+</body>
+</html>

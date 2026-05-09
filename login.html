@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Login</title>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins', sans-serif;
+        }
+
+        body{
+            background:
+            linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+
+            url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1400')
+
+            no-repeat center center/cover;
+
+            min-height:100vh;
+            color:white;
+        }
+
+        /* NAVBAR */
+
+        .navbar{
+            width:100%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 8%;
+            background:#111827;
+        }
+
+        .logo{
+            color:white;
+            font-size:32px;
+            font-weight:700;
+        }
+
+        .nav-links{
+            display:flex;
+            list-style:none;
+        }
+
+        .nav-links li{
+            margin-left:30px;
+        }
+
+        .nav-links a{
+            text-decoration:none;
+            color:white;
+            font-size:17px;
+            transition:0.3s;
+        }
+
+        .nav-links a:hover{
+            color:#f59e0b;
+        }
+
+        /* LOGIN CONTAINER */
+
+        .login-section{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:85vh;
+            padding:20px;
+        }
+
+        .login-container{
+            width:420px;
+            background:rgba(255,255,255,0.12);
+            backdrop-filter:blur(15px);
+            border:1px solid rgba(255,255,255,0.2);
+            padding:45px;
+            border-radius:20px;
+            box-shadow:0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .login-container h1{
+            text-align:center;
+            margin-bottom:35px;
+            font-size:40px;
+        }
+
+        .input-group{
+            margin-bottom:25px;
+        }
+
+        .input-group label{
+            display:block;
+            margin-bottom:10px;
+            font-size:16px;
+        }
+
+        .input-group input{
+            width:100%;
+            padding:14px;
+            border:none;
+            border-radius:10px;
+            font-size:16px;
+            outline:none;
+        }
+
+        .options{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-bottom:25px;
+            font-size:14px;
+        }
+
+        .options a{
+            color:#f59e0b;
+            text-decoration:none;
+        }
+
+        .login-btn{
+            width:100%;
+            padding:15px;
+            border:none;
+            border-radius:10px;
+            background:#f59e0b;
+            color:white;
+            font-size:18px;
+            font-weight:600;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .login-btn:hover{
+            background:#ea580c;
+            transform:translateY(-3px);
+        }
+
+        .register{
+            text-align:center;
+            margin-top:25px;
+        }
+
+        .register a{
+            color:#f59e0b;
+            text-decoration:none;
+            font-weight:600;
+        }
+
+        /* SOCIAL LOGIN */
+
+        .social-login{
+            margin-top:30px;
+            text-align:center;
+        }
+
+        .social-login p{
+            margin-bottom:15px;
+        }
+
+        .social-buttons{
+            display:flex;
+            gap:15px;
+            justify-content:center;
+        }
+
+        .social-buttons button{
+            padding:12px 18px;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+            font-weight:600;
+            transition:0.3s;
+        }
+
+        .social-buttons button:hover{
+            transform:translateY(-3px);
+        }
+
+        .google{
+            background:white;
+            color:#222;
+        }
+
+        .facebook{
+            background:#1877f2;
+            color:white;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:768px){
+
+            .navbar{
+                flex-direction:column;
+            }
+
+            .nav-links{
+                margin-top:20px;
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            .nav-links li{
+                margin:10px;
+            }
+
+            .login-container{
+                width:100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            TechStore
+        </div>
+
+        <ul class="nav-links">
+
+            <li><a href="index.html">Home</a></li>
+
+            <li><a href="product.html">Products</a></li>
+
+            <li><a href="cart.html">Cart</a></li>
+
+            <li><a href="checkout.html">Checkout</a></li>
+
+            <li><a href="login.html">Login</a></li>
+
+        </ul>
+
+    </nav>
+
+    <!-- LOGIN -->
+
+    <section class="login-section">
+
+        <div class="login-container">
+
+            <h1>
+                Welcome Back
+            </h1>
+
+            <form onsubmit="loginUser(event)">
+
+                <!-- EMAIL -->
+
+                <div class="input-group">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required>
+
+                </div>
+
+                <!-- PASSWORD -->
+
+                <div class="input-group">
+
+                    <label>
+                        Password
+                    </label>
+
+                    <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    required>
+
+                </div>
+
+                <!-- OPTIONS -->
+
+                <div class="options">
+
+                    <label>
+
+                        <input type="checkbox">
+
+                        Remember Me
+
+                    </label>
+
+                    <a href="#">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+                <!-- BUTTON -->
+
+                <button
+                type="submit"
+                class="login-btn">
+
+                    Login
+
+                </button>
+
+            </form>
+
+            <!-- REGISTER -->
+
+            <div class="register">
+
+                <p>
+                    Don't have an account?
+
+                    <a href="#">
+                        Register
+                    </a>
+
+                </p>
+
+            </div>
+
+            <!-- SOCIAL LOGIN -->
+
+            <div class="social-login">
+
+                <p>
+                    Or Login With
+                </p>
+
+                <div class="social-buttons">
+
+                    <button class="google">
+                        Google
+                    </button>
+
+                    <button class="facebook">
+                        Facebook
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function loginUser(event){
+
+            event.preventDefault();
+
+            let email =
+            document.getElementById("email").value;
+
+            let password =
+            document.getElementById("password").value;
+
+            if(email && password){
+
+                alert("Login Successful!");
+
+                window.location.href = "index.html";
+
+            }
+
+            else{
+
+                alert("Please enter valid details");
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

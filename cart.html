@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping Cart</title>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins', sans-serif;
+        }
+
+        body{
+            background:#f5f7fb;
+            color:#222;
+        }
+
+        /* NAVBAR */
+
+        .navbar{
+            width:100%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 8%;
+            background:#111827;
+            position:sticky;
+            top:0;
+            z-index:1000;
+        }
+
+        .logo{
+            color:white;
+            font-size:32px;
+            font-weight:700;
+        }
+
+        .nav-links{
+            display:flex;
+            list-style:none;
+        }
+
+        .nav-links li{
+            margin-left:30px;
+        }
+
+        .nav-links a{
+            text-decoration:none;
+            color:white;
+            font-size:17px;
+            transition:0.3s;
+        }
+
+        .nav-links a:hover{
+            color:#f59e0b;
+        }
+
+        /* PAGE TITLE */
+
+        .page-title{
+            text-align:center;
+            padding:60px 20px 20px;
+        }
+
+        .page-title h1{
+            font-size:50px;
+            margin-bottom:10px;
+        }
+
+        .page-title p{
+            color:#666;
+            font-size:18px;
+        }
+
+        /* CART SECTION */
+
+        .cart-section{
+            width:90%;
+            margin:40px auto 80px;
+        }
+
+        .cart-container{
+            display:flex;
+            flex-direction:column;
+            gap:25px;
+        }
+
+        .cart-item{
+            background:white;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            padding:25px;
+            border-radius:18px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.1);
+            transition:0.3s;
+        }
+
+        .cart-item:hover{
+            transform:translateY(-5px);
+        }
+
+        .cart-left{
+            display:flex;
+            align-items:center;
+            gap:25px;
+        }
+
+        .cart-left img{
+            width:150px;
+            height:150px;
+            object-fit:cover;
+            border-radius:15px;
+        }
+
+        .product-info h2{
+            margin-bottom:10px;
+            font-size:28px;
+        }
+
+        .price{
+            color:#16a34a;
+            font-size:24px;
+            font-weight:700;
+            margin-bottom:10px;
+        }
+
+        .quantity-box{
+            display:flex;
+            align-items:center;
+            gap:10px;
+            margin-top:15px;
+        }
+
+        .quantity-box input{
+            width:70px;
+            padding:10px;
+            border-radius:8px;
+            border:1px solid #ccc;
+            text-align:center;
+            font-size:16px;
+        }
+
+        button{
+            padding:12px 24px;
+            border:none;
+            border-radius:8px;
+            background:#f59e0b;
+            color:white;
+            font-size:15px;
+            font-weight:600;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover{
+            background:#ea580c;
+        }
+
+        .remove-btn{
+            background:#dc2626;
+        }
+
+        .remove-btn:hover{
+            background:#b91c1c;
+        }
+
+        /* SUMMARY */
+
+        .summary{
+            background:white;
+            margin-top:40px;
+            padding:35px;
+            border-radius:18px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .summary h2{
+            margin-bottom:25px;
+            font-size:35px;
+        }
+
+        .summary-row{
+            display:flex;
+            justify-content:space-between;
+            margin-bottom:15px;
+            font-size:20px;
+        }
+
+        .total{
+            font-size:32px;
+            color:#16a34a;
+            font-weight:700;
+            margin-top:20px;
+        }
+
+        .checkout-btn{
+            margin-top:30px;
+            width:100%;
+            padding:16px;
+            font-size:18px;
+        }
+
+        /* FOOTER */
+
+        footer{
+            background:#111827;
+            color:white;
+            text-align:center;
+            padding:25px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:900px){
+
+            .cart-item{
+                flex-direction:column;
+                gap:25px;
+                text-align:center;
+            }
+
+            .cart-left{
+                flex-direction:column;
+            }
+
+        }
+
+        @media(max-width:768px){
+
+            .navbar{
+                flex-direction:column;
+            }
+
+            .nav-links{
+                margin-top:20px;
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            .nav-links li{
+                margin:10px;
+            }
+
+            .page-title h1{
+                font-size:38px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            TechStore
+        </div>
+
+        <ul class="nav-links">
+
+            <li><a href="index.html">Home</a></li>
+
+            <li><a href="product.html">Products</a></li>
+
+            <li><a href="cart.html">Cart</a></li>
+
+            <li><a href="checkout.html">Checkout</a></li>
+
+            <li><a href="login.html">Login</a></li>
+
+        </ul>
+
+    </nav>
+
+    <!-- TITLE -->
+
+    <section class="page-title">
+
+        <h1>
+            Your Shopping Cart
+        </h1>
+
+        <p>
+            Review your selected products before checkout
+        </p>
+
+    </section>
+
+    <!-- CART -->
+
+    <section class="cart-section">
+
+        <div class="cart-container">
+
+            <!-- ITEM 1 -->
+
+            <div class="cart-item">
+
+                <div class="cart-left">
+
+                    <img
+                    src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800"
+                    alt="Watch">
+
+                    <div class="product-info">
+
+                        <h2>
+                            Smart Watch Pro
+                        </h2>
+
+                        <div class="price">
+                            ₹1999
+                        </div>
+
+                        <p>
+                            Premium smartwatch with fitness tracking
+                        </p>
+
+                        <div class="quantity-box">
+
+                            <label>
+                                Quantity:
+                            </label>
+
+                            <input
+                            type="number"
+                            value="1"
+                            min="1">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <button class="remove-btn"
+                onclick="removeItem(this)">
+
+                    Remove
+
+                </button>
+
+            </div>
+
+            <!-- ITEM 2 -->
+
+            <div class="cart-item">
+
+                <div class="cart-left">
+
+                    <img
+                    src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800"
+                    alt="Headphones">
+
+                    <div class="product-info">
+
+                        <h2>
+                            Wireless Headphones
+                        </h2>
+
+                        <div class="price">
+                            ₹2999
+                        </div>
+
+                        <p>
+                            Noise cancellation wireless headphones
+                        </p>
+
+                        <div class="quantity-box">
+
+                            <label>
+                                Quantity:
+                            </label>
+
+                            <input
+                            type="number"
+                            value="1"
+                            min="1">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <button class="remove-btn"
+                onclick="removeItem(this)">
+
+                    Remove
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- SUMMARY -->
+
+        <div class="summary">
+
+            <h2>
+                Order Summary
+            </h2>
+
+            <div class="summary-row">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <span>
+                    ₹4998
+                </span>
+
+            </div>
+
+            <div class="summary-row">
+
+                <span>
+                    Delivery Charges
+                </span>
+
+                <span>
+                    ₹100
+                </span>
+
+            </div>
+
+            <div class="summary-row total">
+
+                <span>
+                    Total
+                </span>
+
+                <span>
+                    ₹5098
+                </span>
+
+            </div>
+
+            <a href="checkout.html">
+
+                <button class="checkout-btn">
+
+                    Proceed To Checkout
+
+                </button>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 TechStore | All Rights Reserved
+        </p>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function removeItem(button){
+
+            button.parentElement.remove();
+
+            alert("Item removed from cart!");
+
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Products</title>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins', sans-serif;
+        }
+
+        body{
+            background:#f5f7fb;
+            color:#222;
+        }
+
+        /* NAVBAR */
+
+        .navbar{
+            width:100%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 8%;
+            background:#111827;
+            position:sticky;
+            top:0;
+            z-index:1000;
+        }
+
+        .logo{
+            color:white;
+            font-size:32px;
+            font-weight:700;
+        }
+
+        .nav-links{
+            display:flex;
+            list-style:none;
+        }
+
+        .nav-links li{
+            margin-left:30px;
+        }
+
+        .nav-links a{
+            text-decoration:none;
+            color:white;
+            font-size:17px;
+            transition:0.3s;
+        }
+
+        .nav-links a:hover{
+            color:#f59e0b;
+        }
+
+        /* HEADING */
+
+        .page-title{
+            text-align:center;
+            padding:60px 20px 20px;
+        }
+
+        .page-title h1{
+            font-size:50px;
+            margin-bottom:15px;
+        }
+
+        .page-title p{
+            color:#666;
+            font-size:18px;
+        }
+
+        /* PRODUCT GRID */
+
+        .product-section{
+            width:90%;
+            margin:40px auto 80px;
+        }
+
+        .product-container{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+            gap:35px;
+        }
+
+        .product-card{
+            background:white;
+            border-radius:18px;
+            overflow:hidden;
+            box-shadow:0 8px 20px rgba(0,0,0,0.1);
+            transition:0.3s;
+        }
+
+        .product-card:hover{
+            transform:translateY(-10px);
+        }
+
+        .product-card img{
+            width:100%;
+            height:280px;
+            object-fit:cover;
+        }
+
+        .product-content{
+            padding:25px;
+        }
+
+        .product-content h2{
+            font-size:28px;
+            margin-bottom:10px;
+        }
+
+        .price{
+            color:#16a34a;
+            font-size:24px;
+            font-weight:700;
+            margin-bottom:15px;
+        }
+
+        .rating{
+            color:#f59e0b;
+            margin-bottom:15px;
+        }
+
+        .description{
+            color:#666;
+            line-height:1.7;
+            margin-bottom:20px;
+        }
+
+        .features{
+            margin-bottom:20px;
+        }
+
+        .features li{
+            margin-bottom:8px;
+            color:#444;
+        }
+
+        .button-group{
+            display:flex;
+            gap:15px;
+            flex-wrap:wrap;
+        }
+
+        button{
+            padding:12px 24px;
+            border:none;
+            border-radius:8px;
+            background:#f59e0b;
+            color:white;
+            font-size:15px;
+            font-weight:600;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover{
+            background:#ea580c;
+            transform:translateY(-3px);
+        }
+
+        /* FOOTER */
+
+        footer{
+            background:#111827;
+            color:white;
+            text-align:center;
+            padding:25px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:768px){
+
+            .navbar{
+                flex-direction:column;
+            }
+
+            .nav-links{
+                margin-top:20px;
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            .nav-links li{
+                margin:10px;
+            }
+
+            .page-title h1{
+                font-size:38px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            TechStore
+        </div>
+
+        <ul class="nav-links">
+
+            <li><a href="index.html">Home</a></li>
+
+            <li><a href="product.html">Products</a></li>
+
+            <li><a href="cart.html">Cart</a></li>
+
+            <li><a href="checkout.html">Checkout</a></li>
+
+            <li><a href="login.html">Login</a></li>
+
+        </ul>
+
+    </nav>
+
+    <!-- TITLE -->
+
+    <section class="page-title">
+
+        <h1>
+            Our Products
+        </h1>
+
+        <p>
+            Discover premium gadgets with modern technology
+        </p>
+
+    </section>
+
+    <!-- PRODUCTS -->
+
+    <section class="product-section">
+
+        <div class="product-container">
+
+            <!-- PRODUCT 1 -->
+
+            <div class="product-card">
+
+                <img
+                src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800"
+                alt="Watch">
+
+                <div class="product-content">
+
+                    <h2>
+                        Smart Watch Pro
+                    </h2>
+
+                    <div class="price">
+                        ₹1999
+                    </div>
+
+                    <div class="rating">
+                        ⭐⭐⭐⭐⭐ (4.8)
+                    </div>
+
+                    <p class="description">
+
+                        Premium smartwatch with health tracking,
+                        notifications, waterproof protection,
+                        and stylish design.
+
+                    </p>
+
+                    <ul class="features">
+
+                        <li>✔ Heart Rate Monitor</li>
+
+                        <li>✔ Fitness Tracking</li>
+
+                        <li>✔ 7 Days Battery</li>
+
+                    </ul>
+
+                    <div class="button-group">
+
+                        <button onclick="addToCart('Smart Watch Pro')">
+                            Add To Cart
+                        </button>
+
+                        <button onclick="buyNow('Smart Watch Pro')">
+                            Buy Now
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PRODUCT 2 -->
+
+            <div class="product-card">
+
+                <img
+                src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800"
+                alt="Headphones">
+
+                <div class="product-content">
+
+                    <h2>
+                        Wireless Headphones
+                    </h2>
+
+                    <div class="price">
+                        ₹2999
+                    </div>
+
+                    <div class="rating">
+                        ⭐⭐⭐⭐☆ (4.5)
+                    </div>
+
+                    <p class="description">
+
+                        Experience immersive sound quality
+                        with premium wireless connectivity
+                        and noise cancellation.
+
+                    </p>
+
+                    <ul class="features">
+
+                        <li>✔ Noise Cancellation</li>
+
+                        <li>✔ 20 Hours Battery</li>
+
+                        <li>✔ Fast Charging</li>
+
+                    </ul>
+
+                    <div class="button-group">
+
+                        <button onclick="addToCart('Wireless Headphones')">
+                            Add To Cart
+                        </button>
+
+                        <button onclick="buyNow('Wireless Headphones')">
+                            Buy Now
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PRODUCT 3 -->
+
+            <div class="product-card">
+
+                <img
+                src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800"
+                alt="Laptop">
+
+                <div class="product-content">
+
+                    <h2>
+                        Ultra Laptop
+                    </h2>
+
+                    <div class="price">
+                        ₹59999
+                    </div>
+
+                    <div class="rating">
+                        ⭐⭐⭐⭐⭐ (4.9)
+                    </div>
+
+                    <p class="description">
+
+                        High-performance laptop designed
+                        for gaming, productivity, and
+                        professional work.
+
+                    </p>
+
+                    <ul class="features">
+
+                        <li>✔ Intel i7 Processor</li>
+
+                        <li>✔ 16GB RAM</li>
+
+                        <li>✔ 512GB SSD</li>
+
+                    </ul>
+
+                    <div class="button-group">
+
+                        <button onclick="addToCart('Ultra Laptop')">
+                            Add To Cart
+                        </button>
+
+                        <button onclick="buyNow('Ultra Laptop')">
+                            Buy Now
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PRODUCT 4 -->
+
+            <div class="product-card">
+
+                <img
+                src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=800"
+                alt="Mouse">
+
+                <div class="product-content">
+
+                    <h2>
+                        Gaming Mouse
+                    </h2>
+
+                    <div class="price">
+                        ₹1499
+                    </div>
+
+                    <div class="rating">
+                        ⭐⭐⭐⭐☆ (4.4)
+                    </div>
+
+                    <p class="description">
+
+                        Ergonomic gaming mouse with RGB
+                        lighting and ultra-fast response
+                        time for gamers.
+
+                    </p>
+
+                    <ul class="features">
+
+                        <li>✔ RGB Lighting</li>
+
+                        <li>✔ Adjustable DPI</li>
+
+                        <li>✔ Ergonomic Design</li>
+
+                    </ul>
+
+                    <div class="button-group">
+
+                        <button onclick="addToCart('Gaming Mouse')">
+                            Add To Cart
+                        </button>
+
+                        <button onclick="buyNow('Gaming Mouse')">
+                            Buy Now
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 TechStore | All Rights Reserved
+        </p>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function addToCart(product){
+
+            alert(product + " added to cart!");
+
+        }
+
+        function buyNow(product){
+
+            alert("Proceeding to buy " + product);
+
+            window.location.href = "checkout.html";
+
+        }
+
+    </script>
+
+</body>
+</html>
